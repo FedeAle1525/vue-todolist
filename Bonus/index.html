@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/320390125a.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>Vue - To Do List</title>
+</head>
+<body>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <div id="app">
+    <!-- Titolo -->
+    <div class="container py-4 text-center">
+      <h1>ToDo List</h1>
+    </div>
+
+    <!-- Form Input -->
+    <div class="container py-3">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label class="col-form-label">Inserisci Task:</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Cosa devi fare di nuovo?" v-model="newTask">
+        </div>
+        <div class="col-auto">
+          <input type="button" class="btn btn-info" value="Aggiungi" @click="addTask()">
+        </div>
+      </div>
+    </div>
+    <!-- Fine Form Input -->
+
+    <!-- ToDo list -->
+    <div class="container py-3">
+      <ul class="list-group border border-success">
+        <li class="list-group-item d-flex justify-content-between align-items-center" 
+          :class="(task.done === true) ? 'text-decoration-line-through' : '' " 
+          v-for="(task,index) in tasks">
+
+          {{task.text}}
+
+          <div class="border-start ps-3" @click="removeTask(index)">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Fine ToDo List -->
+
+  </div>
+  <!-- Fine App -->
+  
+  <script src="./js/script.js"></script>
+</body>
+</html>
