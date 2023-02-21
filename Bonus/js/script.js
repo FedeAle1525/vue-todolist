@@ -52,6 +52,15 @@ createApp({
       this.tasks.push(newItem);
       this.newTask = '';
       
+    },
+
+    changeDone(currentIndex){
+      // let currentDone = this.tasks[currentIndex].done;
+      if (this.tasks[currentIndex].done === true){
+        this.tasks[currentIndex].done = false;
+      } else {
+        this.tasks[currentIndex].done = true;
+      }
     }
     
   }
