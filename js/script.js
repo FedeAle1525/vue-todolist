@@ -28,7 +28,9 @@ createApp({
           text: "Preparare la cena",
           done: false
         }
-      ]
+      ],
+
+      newTask: ''
     }
   },
 
@@ -36,7 +38,23 @@ createApp({
 
     removeTask(indexStart){
       this.tasks.splice(indexStart,1);
+    },
+
+    addTask(){
+
+      const newItem = {
+
+        text: this.newTask,
+        done: false
+
+      };
+
+      this.tasks.push(newItem);
+      this.newTask = '';
+      
     }
+
+    
   }
 
 }).mount('#app')

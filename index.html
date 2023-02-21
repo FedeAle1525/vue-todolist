@@ -13,11 +13,29 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
   <div id="app">
+    <!-- Titolo -->
     <div class="container py-4 text-center">
       <h1>ToDo List</h1>
     </div>
 
-    <div class="container">
+    <!-- Form Input -->
+    <div class="container py-3">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label class="col-form-label">Inserisci Task:</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Cosa devi fare di nuovo?" v-model="newTask">
+        </div>
+        <div class="col-auto">
+          <input type="button" class="btn btn-info" value="Aggiungi" @click="addTask()">
+        </div>
+      </div>
+    </div>
+    <!-- Fine Form Input -->
+
+    <!-- ToDo list -->
+    <div class="container py-3">
       <ul class="list-group border border-success">
         <li class="list-group-item d-flex justify-content-between align-items-center" 
           :class="(task.done === true) ? 'text-decoration-line-through' : '' " 
@@ -31,7 +49,10 @@
         </li>
       </ul>
     </div>
+    <!-- Fine ToDo List -->
+
   </div>
+  <!-- Fine App -->
   
   <script src="./js/script.js"></script>
 </body>
