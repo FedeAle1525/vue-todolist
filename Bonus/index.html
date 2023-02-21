@@ -25,7 +25,8 @@
           <label class="col-form-label">Inserisci Task:</label>
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Cosa devi fare di nuovo?" v-model="newTask">
+          <input type="text" class="form-control" placeholder="Cosa devi fare di nuovo?" 
+          v-model="newTask" @keydown.enter="addTask()">
         </div>
         <div class="col-auto">
           <input type="button" class="btn btn-info" value="Aggiungi" @click="addTask()">
