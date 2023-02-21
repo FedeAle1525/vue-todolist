@@ -19,8 +19,15 @@
 
     <div class="container">
       <ul class="list-group border border-success">
-        <li class="list-group-item" :class="(task.done === true) ? 'text-decoration-line-through' : '' " v-for="task in tasks">
+        <li class="list-group-item d-flex justify-content-between align-items-center" 
+          :class="(task.done === true) ? 'text-decoration-line-through' : '' " 
+          v-for="(task,index) in tasks">
+
           {{task.text}}
+
+          <div class="border-start ps-3" @click="removeTask(index)">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
         </li>
       </ul>
     </div>

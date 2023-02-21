@@ -30,6 +30,13 @@ createApp({
         }
       ]
     }
+  },
+
+  methods: {
+
+    removeTask(indexStart){
+      this.tasks.splice(indexStart,1);
+    }
   }
 
 }).mount('#app')
