@@ -42,16 +42,21 @@ createApp({
 
     addTask(){
 
-      const newItem = {
+      // Aggiungo controllo per Stringa Vuota da non aggiungere
+      // Con il metodo "trim" elimino gli spazi davanti e dietro a una stringa, 
+      // così da eliminare la possibilità che la stringa sia composta da soli spazi
+      if (this.newTask.trim() !== ''){
 
-        text: this.newTask,
-        done: false
+        const newItem = {
 
-      };
-
-      this.tasks.push(newItem);
-      this.newTask = '';
-      
+          text: this.newTask,
+          done: false
+  
+        };
+  
+        this.tasks.push(newItem);
+        this.newTask = '';
+      }
     }
 
     

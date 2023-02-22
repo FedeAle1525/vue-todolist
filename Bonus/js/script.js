@@ -42,18 +42,26 @@ createApp({
 
     addTask(){
 
-      const newItem = {
+      // Aggiungo controllo per Stringa Vuota da non aggiungere
+      // Con il metodo "trim" elimino gli spazi davanti e dietro a una stringa, 
+      // così da eliminare la possibilità che la stringa sia composta da soli spazi
+      if (this.newTask.trim() !== ''){
 
-        text: this.newTask,
-        done: false
+        const newItem = {
 
-      };
+          text: this.newTask,
+          done: false
+  
+        };
+  
+        this.tasks.push(newItem);
+        this.newTask = '';
+      }
 
-      this.tasks.push(newItem);
-      this.newTask = '';
       
     },
 
+    // Al metodo si poteva passare direttamente passare la "task", senza passare dall'Array di Oggetti
     changeDone(currentIndex){
       // let currentDone = this.tasks[currentIndex].done;
       if (this.tasks[currentIndex].done === true){
@@ -61,6 +69,8 @@ createApp({
       } else {
         this.tasks[currentIndex].done = true;
       }
+
+      // FORMA CONTRATTA: this.done = !this.done {assegnamo a "this.done" il valore opposto}
     }
     
   }

@@ -44,8 +44,10 @@
 
           {{task.text}}
 
+          <!-- L'evento su Figlio ha la precedenza sull'Evento del Padre, quindi "removeTask" viene eseguito prima di "changeDone" -->
+          <!-- Questo perchè esiste la Propagazione degli Eventi e pr interroperla dobbiamo usare un modificatore ".stop" su Evento -->
           <div class="border-start px-3">
-            <i class="fa-solid fa-xmark" @click="removeTask(index)"></i>
+            <i class="fa-solid fa-xmark" @click.stop="removeTask(index)"></i>
           </div>
         </li>
         
